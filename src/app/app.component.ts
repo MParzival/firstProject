@@ -8,6 +8,7 @@ import { setTheme } from 'ngx-bootstrap';
 })
 export class AppComponent {
 
+  h2Bar: string;
 
   constructor() {
     setTheme('bs4');
@@ -15,4 +16,8 @@ export class AppComponent {
   title = 'firstProject';
   firstname = 'Mickael';
   lastname = 'Aubin';
+
+  clickOnMenuLink($event: string) {
+    this.h2Bar = $event + ' à cliqué sur le bouton !!';
+  }
 }

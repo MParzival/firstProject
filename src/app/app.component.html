@@ -18,9 +18,11 @@
   </li>
 </ul>
 
-<app-menu></app-menu>
-<app-menu [firstname]="firstname"></app-menu>
-<app-menu [lastname]="lastname"></app-menu>
+<!--<app-menu></app-menu>-->
+<!--<app-menu [firstname]="firstname"></app-menu>-->
+<!--<app-menu [lastname]="lastname"></app-menu>-->
+<app-menu (clickEmitter)="clickOnMenuLink($event)" [firstname]="firstname" [lastname]="lastname"></app-menu>
 
+<h2>{{ h2Bar }}</h2>
 
 <router-outlet></router-outlet>
