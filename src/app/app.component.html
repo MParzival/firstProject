@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ firstname }}!
+    Welcome to {{ firstname | uppercase }}!
   </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <img *ngIf="btnClicked" width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 <h2>Here are some links to help you start: </h2>
 <ul>
@@ -19,8 +19,28 @@
 </ul>
 
 
+<div [ngSwitch]="mood">
+  <p *ngSwitchCase="'happy'">Je suis heureux</p>
+  <p *ngSwitchCase="'sad'">Je suis triste</p>
+  <p *ngSwitchDefault>Je suis apathique</p>
+</div>
 
-<!--<app-menu></app-menu>-->
+<ul *ngFor="let people of peoples">
+  <li>{{people}}</li>
+</ul>
+
+{{ todayDate| date:'dd-MM-yyyy'}}
+{{ number | percent}}
+
+template: `<div>
+  <p>Without JSON pipe:</p>
+  <pre>{{object}}</pre>
+  <p>With JSON pipe:</p>
+  <pre>{{object | json}}</pre>
+</div>`
+
+
+  <!--<app-menu></app-menu>-->
 <!--<app-menu [firstname]="firstname"></app-menu>-->
 <!--<app-menu [lastname]="lastname"></app-menu>-->
 <app-menu (clickEmitter)="clickOnMenuLink($event)" [firstname]="firstname" [lastname]="lastname"></app-menu>
